@@ -3,44 +3,13 @@ package com.company;
 import javax.xml.crypto.Data;
 
 public class LibraryObject {
-    private long id;
-    private String name;
-    private Data creationDate;
-    private Creator creator;
+    private Information information;
 
-    //region getters and setters
-
-    public long getId() {
-        return id;
+    public Information getInformation() {
+        return information;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setInformation(Information information) {
+        this.information = information;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Data getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Data creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Creator getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Creator creator) {
-        this.creator = creator;
-    }
-
-    //endregion
 }
