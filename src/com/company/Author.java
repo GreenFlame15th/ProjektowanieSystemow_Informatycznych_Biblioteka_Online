@@ -7,6 +7,11 @@ public class Author extends Creator {
         return sirName;
     }
 
+    @Override
+    public String toString() {
+        return getName() + " " + getSirName();
+    }
+
     public void setSirName(String sirName) {
         this.sirName = sirName;
     }

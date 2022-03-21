@@ -3,6 +3,11 @@ package com.company;
 public class Creator {
     private String name;
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public String getName() {
         return name;
     }
