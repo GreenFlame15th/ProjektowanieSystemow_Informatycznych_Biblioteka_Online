@@ -7,5 +7,49 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <ANNOTATIONS>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+        </ANNOTATIONS>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+        </JAVADOC>
+        <NATIVE>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+        </NATIVE>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" />
+        </SOURCES>
+        <jarDirectory url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" recursive="false" />
+        <jarDirectory url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" recursive="false" />
+        <jarDirectory url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" recursive="false" type="SOURCES" />
+        <jarDirectory url="jar://$MODULE_DIR$/../../../CodeLiblary/jackson-master.zip!/" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/json-simple-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/JSON-java-master.zip!/JSON-java-master/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../CodeLiblary/JSON-java-master.zip!/JSON-java-master/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

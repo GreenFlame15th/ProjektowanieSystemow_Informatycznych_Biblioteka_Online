@@ -12,6 +12,11 @@ public class Author extends Creator {
         return getName() + " " + getSirName();
     }
 
+    public Author(String name, String sirName) {
+        this.sirName = sirName;
+        this.name = name;
+    }
+
     public void setSirName(String sirName) {
         this.sirName = sirName;
     }

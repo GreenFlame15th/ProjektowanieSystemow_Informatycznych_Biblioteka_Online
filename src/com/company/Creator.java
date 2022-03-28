@@ -1,7 +1,7 @@
 package com.company;
 
 public class Creator {
-    private String name;
+    protected String name;
 
     @Override
     public String toString() {
@@ -13,6 +13,10 @@ public class Creator {
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public Creator(String name) {
         this.name = name;
     }
 }

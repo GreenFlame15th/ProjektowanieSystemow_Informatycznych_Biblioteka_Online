@@ -1,39 +1,30 @@
 package com.company;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public abstract class Main {
 
     public static void main(String[] args) {
         SingletonDataBaseAccess db = SingletonDataBaseAccess.getInstance();
 
-        for (LibraryObject libraryObject: db.getStock()) {
-        System.out.println("-------\n"+libraryObject.toString());
+        try
+        {
+            JSONObject jObj = (JSONObject) new JSONParser().parse(new FileReader("./test.json"));
+            LibraryObject lb = new LibraryObject(jObj);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        System.out.println("######################");
-
-        db.add(LibraryObjectFactory.makeLibraryObject("book"));
-        db.add(LibraryObjectFactory.makeLibraryObject("book"));
-        db.add(LibraryObjectFactory.makeLibraryObject("cassette"));
-        db.add(LibraryObjectFactory.makeLibraryObject("document"));
-        db.add(LibraryObjectFactory.makeLibraryObject("oneOfType"));
-
-        for (LibraryObject libraryObject: db.getStock()) {
-            System.out.println("-------\n"+libraryObject.toString());
-        }
-
-        System.out.println("######################");
-
-        for (LibraryObject libraryObject: db.getStock().stream().filter(
-                        libraryObject -> libraryObject.getInformation().getName() == "unknown" ||
-                                libraryObject.getInformation() == null
-
-                ).toList()) {
-            db.remove(libraryObject);
-        }
-
-        for (LibraryObject libraryObject: db.getStock()) {
-            System.out.println("-------\n"+libraryObject.toString());
-        }
     }
-
 }

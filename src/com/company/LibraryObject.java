@@ -1,5 +1,7 @@
 package com.company;
 
+import org.json.simple.JSONObject;
+
 public class LibraryObject {
     private int id;
     private Information information;
@@ -8,7 +10,8 @@ public class LibraryObject {
     public enum Place {
         SHELF,
         ARCHIVE,
-        CHECKED;
+        CHECKED,
+        STOCK;
 
         @Override
         public String toString() {
@@ -43,6 +46,16 @@ public class LibraryObject {
         this.information = information;
         this.place = place;
     }
+    public LibraryObject(JSONObject jObject) {
+        if (jObject.get("information") == null) {
+            information = new Information();
+        } else {
+            information = new Information((JSONObject) jObject.get("information"));
+        }
+        place = Place.STOCK;
+
+    }
+
 
     //region getters and setters
     public Information getInformation() {
