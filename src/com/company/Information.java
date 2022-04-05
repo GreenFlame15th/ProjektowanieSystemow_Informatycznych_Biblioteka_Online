@@ -22,6 +22,7 @@ public class Information {
         sb.append("Type: ");
         if (type == null){sb.append("unknown");}
         else {sb.append(type);}
+        if(name != "")sb.append("\nName:" +name);
         if (creationDate != null){sb.append("\n Date: "+creationDate);}
         if (creators != null) {
             sb.append("\nCreators:");
@@ -60,8 +61,9 @@ public class Information {
     {
         this.type = (String) jObject.get("type");
         this.name = (String) jObject.get("name");
-        this.creationDate = (Date) jObject.get("creationDate");;
-        this.pageCount = (int) jObject.get("pageCount");
+        this.creationDate = (Date) jObject.get("creationDate");
+        if(jObject.get("pageCount") != null)
+            this.pageCount = (int) jObject.get("pageCount");
         this.duration = (Time) jObject.get("duration");
         if(jObject.get("creators") != null)
         {
@@ -71,11 +73,17 @@ public class Information {
                 Creator creator;
                 JSONObject jsonObject = (JSONObject) object;
                 if (jsonObject.get("sirName") != null)
-                    creator = new Author(
-                            (String) jsonObject.get("name"),
-                            (String) jsonObject.get("sirName"));
+                {
+                    Author author = new Author();
+                    author.setName((String)jsonObject.get("name"));
+                    author.setSirName((String)jsonObject.get("sirName"));
+                    creator = author;
+                }
                 else
-                    creator = new Creator((String) jsonObject.get("name"));
+                {
+                    creator = new Creator();
+                    creator.setName((String) jsonObject.get("name"));
+                }
                 creators.add(creator);
             }
         }

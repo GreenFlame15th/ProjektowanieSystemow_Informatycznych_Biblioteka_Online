@@ -58,6 +58,22 @@ public class LibraryObject {
 
 
     //region getters and setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
     public Information getInformation() {
         return information;
     }

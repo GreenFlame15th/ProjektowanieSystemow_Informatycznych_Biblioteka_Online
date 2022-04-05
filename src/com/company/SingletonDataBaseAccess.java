@@ -28,17 +28,17 @@ public class SingletonDataBaseAccess {
         }
         return instance;
     }
-    public synchronized boolean add(LibraryObject libraryObject)
+    protected synchronized boolean add(LibraryObject libraryObject)
     {
         stock.add(libraryObject);
         RecordList();
         return true;
     }
-    public synchronized List<LibraryObject> getStock()
+    protected synchronized List<LibraryObject> getStock()
     {
         return new ArrayList<LibraryObject>(stock);
     }
-    public synchronized boolean remove(LibraryObject libraryObject)
+    protected synchronized boolean remove(LibraryObject libraryObject)
     {
         stock.remove(libraryObject);
         RecordList();
