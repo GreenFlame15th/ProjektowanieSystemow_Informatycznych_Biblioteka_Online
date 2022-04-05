@@ -30,16 +30,6 @@ public abstract class Main {
 
         System.out.println("\n##########");
 
-        int i =0;
-        for (LibraryObject l:
-             db.getStock()) {
-            LibraryObject lo = new LibraryObject(l);
-            lo.setId(i);
-            lo.setPlace(LibraryObject.Place.SHELF);
-            i++;
-            db.modify(l, lo);
-        }
-
         for (LibraryObject l:
              new Iterator().setCount(2).List(db.getStock())) {
             System.out.println(l.toString()+"\n-------------");

@@ -24,15 +24,15 @@ public class Facade {
     {
         return db.add(libraryObject);
     }
-    public synchronized List<LibraryObject> getStock()
+    public List<LibraryObject> getStock()
     {
         return db.getStock();
     }
-    public synchronized boolean remove(LibraryObject libraryObject)
+    public boolean remove(LibraryObject libraryObject)
     {
         return db.remove(libraryObject);
     }
-    public synchronized boolean modify(LibraryObject oldObject, LibraryObject newObject)
+    public boolean modify(LibraryObject oldObject, LibraryObject newObject)
     {
         return db.modify(oldObject, newObject);
     }
