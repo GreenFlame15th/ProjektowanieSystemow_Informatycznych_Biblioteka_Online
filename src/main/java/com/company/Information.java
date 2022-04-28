@@ -1,9 +1,6 @@
 package com.company;
 
-import org.json.simple.*;
-
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,47 +53,6 @@ public class Information {
         this.creators = information.creators;
         this.pageCount = information.pageCount;
         this.duration = information.duration;
-    }
-    public Information(JSONObject jObject)
-    {
-        this.type = (String) jObject.get("type");
-        this.name = (String) jObject.get("name");
-        this.creationDate = (Date) jObject.get("creationDate");
-        if(jObject.get("pageCount") != null)
-            this.pageCount = (int) jObject.get("pageCount");
-        this.duration = (Time) jObject.get("duration");
-        if(jObject.get("creators") != null)
-        {
-            JSONArray array = (JSONArray) jObject.get("creators");
-            for (Object object : array)
-            {
-                Creator creator;
-                JSONObject jsonObject = (JSONObject) object;
-                if (jsonObject.get("sirName") != null)
-                {
-                    Author author = new Author();
-                    author.setName((String)jsonObject.get("name"));
-                    author.setSirName((String)jsonObject.get("sirName"));
-                    creator = author;
-                }
-                else
-                {
-                    creator = new Creator();
-                    creator.setName((String) jsonObject.get("name"));
-                }
-                creators.add(creator);
-            }
-        }
-        if(jObject.get("signatures") != null)
-        {
-            signatures = new ArrayList<>();
-            JSONArray array = (JSONArray) jObject.get("creators");
-            for (Object object : array)
-            {
-                signatures.add((String) object);
-            }
-        }
-
     }
 
     //region getters and setters

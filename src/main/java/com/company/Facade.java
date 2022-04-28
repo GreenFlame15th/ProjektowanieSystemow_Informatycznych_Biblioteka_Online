@@ -1,24 +1,10 @@
 package com.company;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import java.util.List;
 
 public class Facade {
     SingletonDataBaseAccess db = SingletonDataBaseAccess.getInstance();
-
-    //region Adapter
-    public static List<LibraryObject> JSONObjectToLibraryObjects(JSONArray array)
-    {
-        return  Adapter.JSONObjectToLibraryObjects(array);
-    }
-
-    public static LibraryObject JSONObjectToLibraryObject(JSONObject jsonObjects)
-    {
-        return Adapter.JSONObjectToLibraryObject(jsonObjects);
-    }
-    //endregion
+    
     //region DB
     public boolean add(LibraryObject libraryObject)
     {

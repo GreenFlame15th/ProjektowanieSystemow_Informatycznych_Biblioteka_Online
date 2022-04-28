@@ -1,6 +1,6 @@
 package com.company;
 
-import org.json.simple.JSONObject;
+
 
 public class LibraryObject {
     private int id;
@@ -45,15 +45,6 @@ public class LibraryObject {
         this.id = id;
         this.information = information;
         this.place = place;
-    }
-    public LibraryObject(JSONObject jObject) {
-        if (jObject.get("information") == null) {
-            information = new Information();
-        } else {
-            information = new Information((JSONObject) jObject.get("information"));
-        }
-        place = Place.STOCK;
-
     }
 
 
