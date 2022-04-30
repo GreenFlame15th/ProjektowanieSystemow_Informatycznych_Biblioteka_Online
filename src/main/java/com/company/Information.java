@@ -1,117 +1,64 @@
 package com.company;
 
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
+import org.bson.Document;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Information {
-    private String type;
-    private String name;
-    private Date creationDate;
-    private List<Creator> creators;
-    private int pageCount;
-    private Time duration;
-    private List<String> signatures;
+    private Map<String, Object> characteristics = new HashMap<String, Object>();
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Type: ");
-        if (type == null){sb.append("unknown");}
-        else {sb.append(type);}
-        if(name != "")sb.append("\nName:" +name);
-        if (creationDate != null){sb.append("\n Date: "+creationDate);}
-        if (creators != null) {
-            sb.append("\nCreators:");
-            for (Creator creator:
-                    creators) {
-                sb.append("\n-"+creator);
-            }
+        for(Map.Entry<String, Object> e : characteristics.entrySet())
+        {
+            sb.append(e.getKey() + ": " + e.getValue() + "/n");
         }
-        if (pageCount != 0){
-            sb.append("\nPages: ");
-            if(pageCount <= 0)  sb.append("uncounted");
-            else sb.append(pageCount)
-            ;}
-        if (duration != null){sb.append("\n Duration:"+duration);}
-        if (signatures != null) {
-            sb.append("\nSignatures:");
-            for (String signature:
-                    signatures) {
-                sb.append("\n-"+signature);
-            }
-        }
+
         return sb.toString();
     }
 
     public Information() {
     }
     public Information(Information information) {
-        this.type = information.type;
-        this.name = information.name;
-        this.creationDate = information.creationDate;
-        this.creators = information.creators;
-        this.pageCount = information.pageCount;
-        this.duration = information.duration;
+        this.characteristics = new HashMap<>(information.getCharacteristics());
+
+    }
+    public Information(Document document){
+        Set<String> keys = document.keySet();
+        for (String s:
+                keys) {
+            append(s,document.get(s));
+        }
     }
 
     //region getters and setters
 
-    public List<String> getSignatures() {
-        return signatures;
+    public void append(String key, Object value)
+    {
+        characteristics.put(key, value);
     }
 
-    public void setSignatures(List<String> signatures) {
-        this.signatures = signatures;
+    public Map<String, Object> getCharacteristics() {
+        return characteristics;
     }
 
-    public String getType() {
-        return type;
+    public void setCharacteristics(Map<String, Object> characteristics) {
+        this.characteristics = characteristics;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Document toDocument()
+    {
+        Document toReturn = new Document();
+        for(Map.Entry<String, Object> e : characteristics.entrySet())
+        {
+            toReturn.append(e.getKey(), e.getValue());
+        }
+        return toReturn;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public List<Creator> getCreators() {
-        return creators;
-    }
-
-    public void setCreators(List<Creator> creators) {
-        this.creators = creators;
-    }
-
-    public int getPageCount() {
-        return pageCount;
-    }
-
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
-    }
-
-    public Time getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Time duration) {
-        this.duration = duration;
-    }
 
     //endregion
 }
